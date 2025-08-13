@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Heart, MessageSquare, Share2, Filter, BrainCircuit } from 'lucide-react';
+import { Heart, MessageSquare, Share2, Filter, BrainCircuit, Github, Code } from 'lucide-react';
 import { formatDistanceToNow, format } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useToast } from "@/hooks/use-toast"
@@ -220,7 +220,7 @@ export default function Home() {
     : posts;
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-6 pt-2">
       <motion.h1
         className="text-3xl font-bold mb-5 text-center flex items-center justify-center text-primary"
         initial={{ opacity: 0, y: -20 }}
@@ -230,6 +230,36 @@ export default function Home() {
         <BrainCircuit className="h-6 w-6 mr-2" />
         Discussions
       </motion.h1>
+
+      {/* GitHub Integration Banner */}
+      <motion.div
+        className="mb-6 text-center"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border-blue-200 dark:border-blue-800">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <Github className="h-5 w-5 text-blue-600" />
+                <span className="font-semibold">New: Lupin GitHub Integration</span>
+              </div>
+              <Button
+                onClick={() => window.location.href = '/lupin'}
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+                size="sm"
+              >
+                <Code className="h-4 w-4 mr-2" />
+                Try Lupin AI
+              </Button>
+            </div>
+            <p className="text-sm text-muted-foreground mt-2">
+              Chat with AI • GitHub Integration • SDE2+ Mode • Repository Management
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Banner Section */}
